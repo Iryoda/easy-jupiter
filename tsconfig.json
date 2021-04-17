@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "src",
+        "baseUrl": "./src",
         "target": "esnext",
         "module": "esnext",
         "jsx": "preserve",
@@ -22,5 +22,13 @@
         "isolatedModules": true
     },
     "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
+    "paths": {
+        "@pages/*": ["/pages/*"],
+        "@components/*": ["/components/*"],
+        "@config/*": ["/config/*"],
+        "@styles/*": ["/styles/*"],
+        "@hooks/*": ["/hooks/*"],
+        "@services/*": ["/services/*"]
+    }
 }
