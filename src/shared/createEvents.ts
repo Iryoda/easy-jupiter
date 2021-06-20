@@ -51,29 +51,8 @@ const handleLastMonday = (): number => {
     return dateDayInCalendar - dif
 }
 
-const handleWeekDay = (day: number) => {
-    switch (day) {
-        case 1:
-            return 'MO'
-        case 2:
-            return 'TU'
-        case 3:
-            return 'WE'
-        case 4:
-            return 'TH'
-        case 5:
-            return 'FR'
-        case 6:
-            return 'SA'
-        case 7:
-            return 'SU'
-        default:
-            return ''
-    }
-}
-
 export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
-    const events: any[] = []
+    const events: IGoogleEvents[] = [{} as IGoogleEvents]
     const closestMonday = handleLastMonday()
 
     file.forEach((item) => {
@@ -99,8 +78,6 @@ export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
                 },
                 attendees: [],
                 recurrence: [`RRULE:FREQ=WEEKLY;`],
-                // guestsCanInviteOthers: false,
-                // guestsCanSeeOtherGuests: false,
                 reminders: {
                     useDefault: true
                 }

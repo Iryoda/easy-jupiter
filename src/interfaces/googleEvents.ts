@@ -10,9 +10,8 @@ export interface Events {
         dateTime: string
         timeZone: string
     }
+    attendes?: string[]
     recurrence: string[]
-    guestsCanInviteOthers: boolean
-    guestsCanSeeOtherGuests: boolean
     reminders: {
         useDefault: boolean
     }
