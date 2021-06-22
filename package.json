@@ -5,6 +5,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
+        "storybook": "start-storybook -s ./public -p 6006",
         "lint": "eslint src --max-warnings=0",
         "prepare": "husky install"
     },
@@ -14,12 +15,19 @@
         ]
     },
     "dependencies": {
-        "next": "latest",
+        "jupiter-reader": "^1.0.3",
+        "next": "^10.2.2",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
-        "styled-components": "^5.0.0"
+        "react-dropzone": "^11.3.2",
+        "styled-components": "^5.0.0",
+        "styled-media-query": "^2.1.2"
     },
     "devDependencies": {
+        "@storybook/addon-docs": "^6.2.9",
+        "@storybook/addon-essentials": "^6.2.9",
+        "@storybook/react": "^6.2.9",
+        "@types/gapi": "^0.0.39",
         "@types/node": "12.0.12",
         "@types/react": "16.8.23",
         "@types/react-dom": "16.8.4",
