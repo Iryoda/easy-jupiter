@@ -13,7 +13,9 @@ What is included?
 ## How to use
 Clone this repositorie and run:
 
-`yarn install`
+`yarn install` 
+or
+`yarn`
 
 To run this project use:
 
