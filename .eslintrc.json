@@ -34,15 +34,17 @@
                 "format": ["PascalCase"]
             }
         ],
-        "no-use-before-define": "off",
+        "no-use-before`-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
-        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-e`slint/explicit-module-boundary-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
         "prettier/prettier": "error",
         "import/extensions": "off",
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "no-plusplus": "off",
+        "no-unused-expressions": "off"
     }
 }
