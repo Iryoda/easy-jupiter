@@ -6,7 +6,13 @@
         "build": "next build",
         "start": "next start",
         "storybook": "start-storybook -s ./public -p 6006",
-        "lint": "eslint src --max-warnings=0"
+        "lint": "eslint src --max-warnings=0",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.ts(x)?": [
+            "yarn lint --fix"
+        ]
     },
     "dependencies": {
         "jupiter-reader": "^1.0.3",
@@ -44,15 +50,5 @@
         "tsconfig-paths": "^3.9.0",
         "typescript": "4.0"
     },
-    "license": "MIT",
-    "lint-staged": {
-        "src/**/*": [
-            "yarn lint --fix"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    }
+    "license": "MIT"
 }
