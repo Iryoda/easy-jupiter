@@ -31,8 +31,9 @@ const InputLayout = () => {
                 .then(() => {
                     const events = createEvents(file)
 
-                    const batch = gapi.client.newBatch()
+                    console.log(events)
 
+                    const batch = gapi.client.newBatch()
                     events.map((item) =>
                         batch.add(
                             gapi.client.calendar.events.insert({

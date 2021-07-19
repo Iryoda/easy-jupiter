@@ -1,16 +1,23 @@
 import { NextPage } from 'next'
 import { GlobalContainer } from 'components/GlobalContainer/styles'
 import { useStep } from 'hooks/useSteps'
-import * as S from 'styles/Home/styles'
 import Header from 'components/Header'
 import HomeLayout from 'templates/HomeLayout'
 import InputLayout from 'templates/InputDataLayout'
 import FinishLayout from 'templates/FinishLayout'
+import * as S from '../styles/Home'
+
+type layoutsProps = {
+    [key: string]: JSX.Element
+    first: JSX.Element
+    second: JSX.Element
+    third: JSX.Element
+}
 
 const Home: NextPage = () => {
     const { step } = useStep()
 
-    const layouts: any = {
+    const layouts: layoutsProps = {
         first: <HomeLayout />,
         second: <InputLayout />,
         third: <FinishLayout />
