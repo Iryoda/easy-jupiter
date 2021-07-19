@@ -45,6 +45,7 @@
         "no-use-before-define": "off",
         "no-plusplus": "off",
         "no-unused-expressions": "off",
+        "no-console": "error",
         "prettier/prettier": "error"
     }
 }
