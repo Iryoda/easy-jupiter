@@ -1,36 +1,34 @@
 import { IScheduleResponse as ISchedule } from 'jupiter-reader'
 import IGoogleEvents from 'interfaces'
+import { add, formatISO, nextMonday, set, sub } from 'date-fns'
 
 interface DateProps {
-    closestMonday: number
+    lastMonday: Date
     classDay: number
     startTime: string
     endTime: string
 }
 
 const handleDate = ({
-    closestMonday,
+    lastMonday,
     classDay,
     startTime,
     endTime
 }: DateProps): { startDate: string; endDate: string } => {
-    const date = new Date()
-    const year = date.getFullYear()
-    let month
-
-    if (date.getMonth() + 1 < 10) {
-        month = `0${date.getMonth() + 1}`
-    } else {
-        month = date.getMonth() + 1
-    }
-
-    const startDate = `${year}-${month}-${
-        Number(classDay) + Number(closestMonday)
-    }T${startTime}:00`
-
-    const endDate = `${year}-${month}-${
-        Number(classDay) + Number(closestMonday)
-    }T${endTime}:00`
+    const startDate = formatISO(
+        add(lastMonday, {
+            days: classDay,
+            hours: Number(startTime.split(':')[0]),
+            minutes: Number(startTime.split(':')[1])
+        })
+    )
+    const endDate = formatISO(
+        add(lastMonday, {
+            days: classDay,
+            hours: Number(endTime.split(':')[0]),
+            minutes: Number(endTime.split(':')[1])
+        })
+    )
 
     return {
         startDate,
@@ -38,27 +36,19 @@ const handleDate = ({
     }
 }
 
-const handleLastMonday = (): number => {
-    const date = new Date()
-    const dateDayInCalendar = date.getDate()
-    const todayDay = date.getDay()
-
-    if (todayDay === 0) {
-        return dateDayInCalendar + 1
-    }
-
-    const dif = 1 - todayDay
-    return dateDayInCalendar - dif
-}
-
 export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
     const events: IGoogleEvents[] = [{} as IGoogleEvents]
-    const closestMonday = handleLastMonday()
+    const today = new Date()
+    const lastMonday = set(sub(nextMonday(today), { days: 7 }), {
+        hours: 0,
+        minutes: 0,
+        milliseconds: 0
+    })
 
     file.forEach((item) => {
         item.classes.forEach((schedule) => {
             const dates = handleDate({
-                closestMonday,
+                lastMonday,
                 classDay: schedule.day,
                 startTime: item.initTime,
                 endTime: item.endTime
