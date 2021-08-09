@@ -4,6 +4,9 @@ import Header from '.'
 export default {
     title: 'Header',
     component: Header,
+    parameters: {
+        background: 'dark'
+    },
     args: {}
 } as Meta
 
