@@ -1,11 +1,9 @@
 import { NextPage } from 'next'
-import { GlobalContainer } from 'components/GlobalContainer/styles'
 import { useStep } from 'hooks/useSteps'
-import Header from 'components/Header'
 import HomeLayout from 'templates/HomeLayout'
 import InputLayout from 'templates/InputDataLayout'
 import FinishLayout from 'templates/FinishLayout'
-import * as S from '../styles/Home'
+import Base from 'templates/Base'
 
 type layoutsProps = {
     [key: string]: JSX.Element
@@ -23,14 +21,7 @@ const Home: NextPage = () => {
         third: <FinishLayout />
     }
 
-    return (
-        <GlobalContainer>
-            <Header />
-            <S.Content>
-                {layouts[step] ? layouts[step] : <h1>Error</h1>}
-            </S.Content>
-        </GlobalContainer>
-    )
+    return <Base>{layouts[step] ? layouts[step] : <h1>Error</h1>}</Base>
 }
 
 export default Home

@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-const Section = styled.section`
+export const Content = styled.div`
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
 `
-
-export default Section
