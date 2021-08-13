@@ -21,7 +21,7 @@ const InputLayout = () => {
         <S.Wrapper>
             <Head>
                 <script
-                    src="http://apis.google.com/js/api.js"
+                    src="https://apis.google.com/js/api.js"
                     type="text/javascript"
                 />
             </Head>
