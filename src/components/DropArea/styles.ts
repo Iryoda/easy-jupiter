@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     width: 80rem;
@@ -16,4 +16,4 @@ export const Wrapper = styled.div`
     :hover {
         box-shadow: 0px 0px 20px 4px inset rgba(255, 255, 255, 0.3);
     }
-`
+`;

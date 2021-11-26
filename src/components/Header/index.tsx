@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from './styles';
 
 const Header = () => (
     <S.Wrapper>
@@ -6,6 +6,6 @@ const Header = () => (
         <h1>easyJupiter</h1>
         <h1>como usar</h1>
     </S.Wrapper>
-)
+);
 
-export default Header
+export default Header;

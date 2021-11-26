@@ -3,6 +3,6 @@ export const theme = {
         background: '#272836',
         lowPurple: '#40405A',
         purple: '#6054A8',
-        font: '#fff'
-    }
-}
+        font: '#fff',
+    },
+};

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     min-height: 100%;
@@ -11,4 +11,4 @@ export const Wrapper = styled.div`
         font-weight: 400;
         margin-bottom: 8rem;
     }
-`
+`;

@@ -1,6 +1,6 @@
-import AppProvider from 'hooks'
-import { AppProps } from 'next/app'
-import { GlobalStyle } from 'styles'
+import AppProvider from 'hooks';
+import { AppProps } from 'next/app';
+import { GlobalStyle } from 'styles';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <GlobalStyle />
             <Component {...pageProps} />
         </AppProvider>
-    )
+    );
 }
 
-export default MyApp
+export default MyApp;

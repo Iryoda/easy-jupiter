@@ -1,21 +1,21 @@
-import { useFile } from 'hooks/useFile'
-import { useStep } from 'hooks/useSteps'
-import Head from 'next/head'
-import React from 'react'
-import GoogleLoginRequest from 'services/googleLogin.service'
-import * as S from './styles'
+import { useFile } from 'hooks/useFile';
+import { useStep } from 'hooks/useSteps';
+import Head from 'next/head';
+import React from 'react';
+import GoogleLoginRequest from 'services/googleLogin.service';
+import * as S from './styles';
 
 const InputLayout = () => {
-    const { file } = useFile()
-    const { setStep } = useStep()
+    const { file } = useFile();
+    const { setStep } = useStep();
 
     const handleCreateEvent = async () => {
         try {
-            await GoogleLoginRequest(file, setStep)
+            await GoogleLoginRequest(file, setStep);
         } catch (e) {
-            setStep('one')
+            setStep('one');
         }
-    }
+    };
 
     return (
         <S.Wrapper>
@@ -34,7 +34,7 @@ const InputLayout = () => {
                 Logar no google
             </button>
         </S.Wrapper>
-    )
-}
+    );
+};
 
-export default InputLayout
+export default InputLayout;

@@ -1,3 +1,3 @@
-import { Events as IGoogleEvents } from './googleEvents'
+import { Events as IGoogleEvents } from './googleEvents';
 
-export default IGoogleEvents
+export default IGoogleEvents;

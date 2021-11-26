@@ -1,37 +1,37 @@
-import { useCallback } from 'react'
-import { useDropzone } from 'react-dropzone'
-import { jupiterReadFromInput } from 'jupiter-reader'
-import { useFile } from 'hooks/useFile'
-import { useStep } from 'hooks/useSteps'
-import * as S from './styles'
+import { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { jupiterReadFromInput } from 'jupiter-reader';
+import { useFile } from 'hooks/useFile';
+import { useStep } from 'hooks/useSteps';
+import * as S from './styles';
 
 export type DropAreaProps = {
-    setErrorMensage(msg: string): void
-}
+    setErrorMensage(msg: string): void;
+};
 
 const DropArea = ({ setErrorMensage }: DropAreaProps) => {
-    const { setFileData } = useFile()
-    const { setStep } = useStep()
+    const { setFileData } = useFile();
+    const { setStep } = useStep();
 
     const onDrop = useCallback(
         (acceptedFiles) => {
             try {
-                setStep('second')
+                setStep('second');
                 acceptedFiles.map(async (file: File | Blob) => {
-                    const result = await jupiterReadFromInput(file)
-                    setFileData(result)
-                })
+                    const result = await jupiterReadFromInput(file);
+                    setFileData(result);
+                });
             } catch (error) {
-                setErrorMensage(error)
+                setErrorMensage(error as string);
             }
         },
-        [setFileData, setErrorMensage, setStep]
-    )
+        [setFileData, setErrorMensage, setStep],
+    );
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
-        maxFiles: 1
-    })
+        maxFiles: 1,
+    });
 
     return (
         <S.Wrapper {...getRootProps({ classname: 'dropzone' })}>
@@ -41,7 +41,7 @@ const DropArea = ({ setErrorMensage }: DropAreaProps) => {
                 escolher o arquivo
             </p>
         </S.Wrapper>
-    )
-}
+    );
+};
 
-export default DropArea
+export default DropArea;

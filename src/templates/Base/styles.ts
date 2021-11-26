@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Content = styled.div`
     height: calc(100vh - 9.6rem);
@@ -6,4 +6,4 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-`
+`;

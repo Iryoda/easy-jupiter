@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import media from 'styled-media-query'
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -18,4 +18,4 @@ export const Wrapper = styled.div`
     ${media.greaterThan('medium')`
         padding: 0rem 24rem;
     `}
-`
+`;

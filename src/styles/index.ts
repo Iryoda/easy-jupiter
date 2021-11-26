@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     @font-face{
@@ -37,4 +37,4 @@ export const GlobalStyle = createGlobalStyle`
     p {
         font-size: 2rem;
     }
-`
+`;
