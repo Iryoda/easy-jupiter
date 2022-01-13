@@ -1,6 +1,7 @@
 import { IScheduleResponse as ISchedule } from 'jupiter-reader';
 import IGoogleEvents from 'interfaces';
 import { add, formatISO, nextMonday, set, sub } from 'date-fns';
+import emojis from './emojis';
 
 interface DateProps {
     lastMonday: Date;
@@ -12,6 +13,7 @@ interface DateProps {
 type IClassMap = {
     [name: string]: {
         color: number;
+        emoji: string;
     };
 };
 
@@ -46,7 +48,10 @@ const handleDate = ({
     };
 };
 
-export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
+export const createEvents = (
+    file: ISchedule[],
+    withEmoji?: boolean,
+): IGoogleEvents[] => {
     const events: IGoogleEvents[] = [{} as IGoogleEvents];
     const today = new Date();
     const lastMonday = set(sub(nextMonday(today), { days: 7 }), {
@@ -58,8 +63,11 @@ export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
     file.forEach((item) => {
         item.classes.forEach((schedule) => {
             if (!classMap[schedule.name]) {
+                const random = Math.floor(Math.random() * emojis.length);
+
                 classMap[schedule.name] = {
                     color: colorStack.pop() || 1,
+                    emoji: emojis[random],
                 };
             }
 
@@ -71,7 +79,9 @@ export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
             });
 
             const event = {
-                summary: `${schedule.name}`,
+                summary: withEmoji
+                    ? `${classMap[schedule.name].emoji} ${schedule.name}`
+                    : `${schedule.name}`,
                 description: `Aula de ${schedule.name}`,
                 creator: 'easyjupiter',
                 start: {
