@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "date-fns": "^2.23.0",
+        "framer-motion": "^5.6.0",
         "jupiter-reader": "^1.0.3",
         "next": "^10.2.2",
         "react": "^16.13.0",

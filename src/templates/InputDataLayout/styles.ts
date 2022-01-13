@@ -22,7 +22,36 @@ export const Wrapper = styled.div`
     }
 
     > button {
-        height: 4.8rem;
         width: 100%;
+        border: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1.6rem;
+        border-radius: 0.8rem;
+
+        color: ${({ theme }) => theme.colors.font};
+
+        background-color: ${({ theme }) => theme.colors.lowPurple};
+        box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.15);
+
+        cursor: pointer;
+        transition: 0.2s;
+
+        :hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        :active {
+            transform: translateY(4px);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        > p {
+            margin-right: 2.4rem;
+        }
     }
 `;
