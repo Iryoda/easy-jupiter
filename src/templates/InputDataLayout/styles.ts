@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     min-height: 100%;
+
+    padding: 4.8rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,11 +39,18 @@ export const Wrapper = styled.div`
 
         background-color: ${({ theme }) => theme.colors.lowPurple};
         box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.15);
+        outline: none;
 
         cursor: pointer;
+
         transition: 0.2s;
 
         :hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        :focus {
             transform: translateY(-4px);
             box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.15);
         }
@@ -53,5 +63,10 @@ export const Wrapper = styled.div`
         > p {
             margin-right: 2.4rem;
         }
+    }
+
+    > div {
+        width: 100%;
+        margin-top: 4rem;
     }
 `;

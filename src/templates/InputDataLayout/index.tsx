@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Image from 'next/image';
-
 import { useFile } from 'hooks/useFile';
 import { useStep } from 'hooks/useSteps';
+
+import Image from 'next/image';
 import Head from 'next/head';
+import CheckBox from 'components/CheckBox';
 
 import GoogleLoginRequest from 'services/googleLogin.service';
 
@@ -13,10 +14,11 @@ const InputLayout = () => {
     const { file } = useFile();
     const { setStep } = useStep();
     const [isLoading, setIsLoading] = useState(false);
+    const [withEmoji, setWithEmoji] = useState(false);
 
     const handleCreateEvent = async () => {
         try {
-            await GoogleLoginRequest(file, setStep, setIsLoading);
+            await GoogleLoginRequest(file, setStep, setIsLoading, withEmoji);
         } catch (e) {
             setStep('one');
         }
@@ -50,6 +52,12 @@ const InputLayout = () => {
                             alt="Logo da Google"
                         />
                     </button>
+                    <div>
+                        <CheckBox checked={withEmoji} setChecked={setWithEmoji}>
+                            Ativar emojis aleatórios nos nomes das disciplinas?
+                            (Ex: ⚡ PCS0000-0001)
+                        </CheckBox>
+                    </div>
                 </>
             )}
         </S.Wrapper>
