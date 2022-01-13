@@ -9,6 +9,16 @@ interface DateProps {
     endTime: string;
 }
 
+type IClassMap = {
+    [name: string]: {
+        color: number;
+    };
+};
+
+const colorStack: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+const classMap: IClassMap = {};
+
 const handleDate = ({
     lastMonday,
     classDay,
@@ -47,6 +57,12 @@ export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
 
     file.forEach((item) => {
         item.classes.forEach((schedule) => {
+            if (!classMap[schedule.name]) {
+                classMap[schedule.name] = {
+                    color: colorStack.pop() || 1,
+                };
+            }
+
             const dates = handleDate({
                 lastMonday,
                 classDay: schedule.day,
@@ -66,6 +82,7 @@ export const createEvents = (file: ISchedule[]): IGoogleEvents[] => {
                     dateTime: dates.endDate,
                     timeZone: `America/Sao_Paulo`,
                 },
+                colorId: classMap[schedule.name].color,
                 attendees: [],
                 recurrence: [`RRULE:FREQ=WEEKLY;`],
                 reminders: {
