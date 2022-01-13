@@ -29,6 +29,7 @@ const checkAndDeleteOldEasyJupiterCalender = async (
 const GoogleLoginRequest = async (
     file: IScheduleResponse[],
     setStep: (value: string) => void,
+    setIsLoading: (value: boolean) => void,
 ) => {
     try {
         const { publicRuntimeConfig } = getConfig();
@@ -46,6 +47,8 @@ const GoogleLoginRequest = async (
             await gapi.client.load('calendar', 'v3');
 
             await gapi.auth2.getAuthInstance().signIn();
+
+            setIsLoading(true);
 
             const getCalendarList =
                 await gapi.client.calendar.calendarList.list();
