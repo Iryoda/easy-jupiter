@@ -30,6 +30,7 @@ const GoogleLoginRequest = async (
     file: IScheduleResponse[],
     setStep: (value: string) => void,
     setIsLoading: (value: boolean) => void,
+    withEmoji: boolean,
 ) => {
     try {
         const { publicRuntimeConfig } = getConfig();
@@ -57,7 +58,7 @@ const GoogleLoginRequest = async (
                 getCalendarList,
             );
 
-            const events = createEvents(file);
+            const events = createEvents(file, withEmoji);
 
             const batch = gapi.client.newBatch();
 
