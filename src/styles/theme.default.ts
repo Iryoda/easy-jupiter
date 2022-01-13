@@ -4,5 +4,6 @@ export const theme = {
         lowPurple: '#40405A',
         purple: '#6054A8',
         font: '#fff',
+        white: '#fff',
     },
 };
